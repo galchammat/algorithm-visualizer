@@ -3,10 +3,11 @@ import { MainLayout } from './components/layout/layout'
 import { Grid } from './components/grid/grid'
 
 function App() {
+  const {controls, grid} = Grid();
   return (
     <ThemeProvider>
-      <MainLayout>
-        <Grid />
+      <MainLayout headerControls={controls}>
+        {grid}
       </MainLayout>
     </ThemeProvider>
   )
