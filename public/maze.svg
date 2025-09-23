@@ -1,0 +1,27 @@
+<!-- filepath: /home/galchammat/code/personal/algo-vis/public/maze-icon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Outer border -->
+  <rect x="2" y="2" width="28" height="28" fill="none" stroke="#3495eb" stroke-width="2"/>
+  
+  <!-- Maze paths -->
+  <rect x="4" y="4" width="4" height="12" fill="#3495eb"/>
+  <rect x="4" y="20" width="4" height="8" fill="#3495eb"/>
+  <rect x="12" y="4" width="4" height="8" fill="#3495eb"/>
+  <rect x="12" y="16" width="4" height="12" fill="#3495eb"/>
+  <rect x="20" y="4" width="4" height="4" fill="#3495eb"/>
+  <rect x="20" y="12" width="4" height="8" fill="#3495eb"/>
+  <rect x="20" y="24" width="4" height="4" fill="#3495eb"/>
+  
+  <!-- Horizontal walls -->
+  <rect x="8" y="8" width="4" height="4" fill="#3495eb"/>
+  <rect x="8" y="16" width="4" height="4" fill="#3495eb"/>
+  <rect x="16" y="12" width="4" height="4" fill="#3495eb"/>
+  <rect x="24" y="8" width="4" height="4" fill="#3495eb"/>
+  <rect x="24" y="20" width="4" height="4" fill="#3495eb"/>
+  
+  <!-- Start point (green) -->
+  <circle cx="6" cy="18" r="1.5" fill="#FFFFFF"/>
+  
+  <!-- End point (red) -->
+  <circle cx="26" cy="14" r="1.5" fill="#ef4444"/>
+</svg>
