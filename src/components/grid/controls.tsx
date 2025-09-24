@@ -1,6 +1,7 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import type { algorithms } from '@/algorithms'
 
 
 export type editMode = "wall" | "start" | "end"
@@ -8,10 +9,15 @@ export type editMode = "wall" | "start" | "end"
 type ControlsProps = {
   currentMode: editMode;
   setCurrentMode: React.Dispatch<React.SetStateAction<editMode>>;
+  setAlgorithm: React.Dispatch<React.SetStateAction<keyof typeof algorithms>>;
+  run: () => void;
 }
 
 
-export function Controls({ currentMode, setCurrentMode }: ControlsProps) {
+export function Controls({ currentMode, setCurrentMode, setAlgorithm, run }: ControlsProps) {
+  const handleAlgorithmChange = (value: string) => {
+    setAlgorithm(value as keyof typeof algorithms);
+  };
 
   return (
     <div className="flex items-center gap-4">
@@ -46,7 +52,7 @@ export function Controls({ currentMode, setCurrentMode }: ControlsProps) {
 
       {/* Algorithm Controls */}
       <div className="flex items-center gap-2">
-        <Select defaultValue="dijkstra">
+        <Select defaultValue="dijkstra" onValueChange={handleAlgorithmChange}>
           <SelectTrigger className="w-32">
             <SelectValue />
           </SelectTrigger>
@@ -62,7 +68,7 @@ export function Controls({ currentMode, setCurrentMode }: ControlsProps) {
         <Separator orientation="vertical" className="h-6" />
         <Separator orientation="vertical" className="h-6" />
 
-        <Button variant="default">
+        <Button variant="default" onClick={run}>
           Start
         </Button>
         <Button variant="destructive">

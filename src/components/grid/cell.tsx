@@ -2,7 +2,7 @@ import { Play, Target } from "lucide-react";
 
 type CellProps = {
     index: number;
-    type?: 'start' | 'end' | 'wall' | 'empty';
+    type?: 'start' | 'end' | 'wall' | 'empty' | 'current' | 'tail';
     onClick: (index: number) => void;
 }
 
@@ -11,13 +11,21 @@ export function Cell({ index, type, onClick }: CellProps) {
         <div
             key={index}
             onClick={() => onClick(index)}
-            className={`flex items-center justify-center bg-muted border border-border hover:bg-accent hover:border-accent-foreground transition-colors duration-200 cursor-pointer ${
-            type === 'wall' ? 'bg-red': ''
+            className={`flex items-center justify-center border border-border hover:border-accent-foreground transition-colors duration-30 cursor-pointer overflow-hidden ${
+            type === 'wall' ? 'bg-card border-none hover:border-accent-foreground' : 
+            type === 'current' ? 'bg-primary' : // Most prominent
+            type === 'tail' ? 'bg-primary/50' : // Less prominent
+            'bg-muted'
             }`}
-            style={{ height: '100%' }}
+            style={{ 
+            width: '100%',
+            height: '100%',
+            minWidth: 0,
+            minHeight: 0
+            }}
         >
-            {type === 'start' && <Play color="green" fill="green" className="h-4 w-4 text-muted-foreground" />}
-            {type === 'end' && <Target color="red" className="h-4 w-4 text-muted-foreground" />}
+            {type === 'start' && <Play color="green" fill="green"  />}
+            {type === 'end' && <Target color="red"  />}
         </div>
     )
 }

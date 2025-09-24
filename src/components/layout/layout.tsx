@@ -15,7 +15,7 @@ export function MainLayout({ headerControls, children }: MainLayoutProps) {
       <header className="flex items-center p-4 border-b">
         {/* Left section - H1 */}
         <div className="flex-1">
-          <h1 className="text-2xl font-bold">Algorithm Visualizer</h1>
+          <h1 className="text-2xl font-bold">Algo Vis</h1>
         </div>
 
         {headerControls}
